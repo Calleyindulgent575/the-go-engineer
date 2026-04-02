@@ -22,12 +22,12 @@ import (
 //   - API response structure for paginated data
 //
 // ENGINEERING DEPTH:
-//   While `LIMIT ? OFFSET ?` is standard, you must understand its algorithmic cost. 
-//   `OFFSET 50000 LIMIT 10` forces the database engine to locate, load, and scan 
-//   50,010 sequential rows off the disk, just to discard the first 50,000 and 
-//   return the final 10. For massive Google-scale systems, this O(n) scan creates 
-//   deadly latency ("The Offset Penalty"). In those scenarios, engineers abandon 
-//   Offsets entirely and use "Cursor Pagination" (`WHERE id > ? LIMIT 10`), taking 
+//   While `LIMIT ? OFFSET ?` is standard, you must understand its algorithmic cost.
+//   `OFFSET 50000 LIMIT 10` forces the database engine to locate, load, and scan
+//   50,010 sequential rows off the disk, just to discard the first 50,000 and
+//   return the final 10. For massive Google-scale systems, this O(n) scan creates
+//   deadly latency ("The Offset Penalty"). In those scenarios, engineers abandon
+//   Offsets entirely and use "Cursor Pagination" (`WHERE id > ? LIMIT 10`), taking
 //   advantage of sub-millisecond O(log N) B-Tree Primary Key index seeks!
 //
 // RUN: go run ./13-web-masterclass/9-pagination

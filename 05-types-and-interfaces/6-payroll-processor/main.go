@@ -70,16 +70,16 @@ func PrintEmployeeSummary[P fmt.Stringer](employee P) {
 }
 
 // ProcessPayroll accepts a slice of the Payable interface.
-// This is pure polymorphism. At runtime, Go uses "Dynamic Dispatch" (iTables) 
+// This is pure polymorphism. At runtime, Go uses "Dynamic Dispatch" (iTables)
 // to look up which underlying struct's CalculatePay method to execute.
 func ProcessPayroll(employees []Payable) {
 	fmt.Println("\n--- Processing Payroll ---")
 	totalPayroll := 0.0
 	for _, emp := range employees {
-		PrintEmployeeSummary(emp) 
-		
+		PrintEmployeeSummary(emp)
+
 		// The magic of Interfaces: We don't care if emp is hourly or salaried!
-		pay := emp.CalculatePay() 
+		pay := emp.CalculatePay()
 		fmt.Printf("    Monthly Pay: $%.2f\n", pay)
 		totalPayroll += pay
 	}

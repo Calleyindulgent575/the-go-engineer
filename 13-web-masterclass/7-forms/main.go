@@ -21,12 +21,12 @@ import (
 //   - Reusable validation methods: Required, MinLength, MaxLength, MatchesPattern
 //
 // ENGINEERING DEPTH:
-//   A massive pitfall for juniors is trusting frontend `<input required>` and 
-//   regex attributes. The golden rule of Web Security is: "The Client is in the 
-//   hands of the Enemy." Anyone can open Chrome DevTools, delete the `required` 
-//   tag, and submit a malformed HTTP `application/x-www-form-urlencoded` request. 
-//   Your server MUST strictly validate the payload. We encapsulate `url.Values` 
-//   in a custom `Form` struct to attach an `Errors map[string][]string` directly 
+//   A massive pitfall for juniors is trusting frontend `<input required>` and
+//   regex attributes. The golden rule of Web Security is: "The Client is in the
+//   hands of the Enemy." Anyone can open Chrome DevTools, delete the `required`
+//   tag, and submit a malformed HTTP `application/x-www-form-urlencoded` request.
+//   Your server MUST strictly validate the payload. We encapsulate `url.Values`
+//   in a custom `Form` struct to attach an `Errors map[string][]string` directly
 //   to the execution lifecycle, cleanly isolating business validation from transport.
 //
 // RUN: go run ./13-web-masterclass/7-forms

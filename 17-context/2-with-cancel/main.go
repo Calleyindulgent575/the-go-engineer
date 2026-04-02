@@ -20,11 +20,11 @@ import (
 //
 // ENGINEERING DEPTH:
 //   When you invoke `context.WithCancel(parent)`, Go creates a `cancelCtx` struct
-//   under the hood. This struct contains a Mutex and a `done` channel. It also 
-//   recursively climbs up the Context tree until it finds the first cancellable 
-//   parent, and appends itself to that parent's internal array of children! 
-//   When you call `cancel()`, Go closes the `done` channel, broadcasts the close 
-//   signal to all children in the array, and then removes itself from the parent 
+//   under the hood. This struct contains a Mutex and a `done` channel. It also
+//   recursively climbs up the Context tree until it finds the first cancellable
+//   parent, and appends itself to that parent's internal array of children!
+//   When you call `cancel()`, Go closes the `done` channel, broadcasts the close
+//   signal to all children in the array, and then removes itself from the parent
 //   to allow the Garbage Collector to sweep the dead goroutines.
 //
 // RUN: go run ./17-context/2-with-cancel

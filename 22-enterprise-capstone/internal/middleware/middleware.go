@@ -24,7 +24,7 @@ import (
 
 // RecoverPanic acts as the outermost onion shell.
 // By wrapping `next.ServeHTTP` inside a function containing a `defer recover()`,
-// we guarantee that if ANY downstream handler throws a fatal panic, this 
+// we guarantee that if ANY downstream handler throws a fatal panic, this
 // middleware will instantly catch it, write a 500 status code, and prevent
 // the entire server process from crashing!
 func RecoverPanic(logger *slog.Logger) func(http.Handler) http.Handler {
@@ -69,7 +69,7 @@ func SecureHeaders(next http.Handler) http.Handler {
 		w.Header().Set("X-Content-Type-Options", "nosniff")
 		// Stop execution if an XSS attack is detected by the browser natively
 		w.Header().Set("X-XSS-Protection", "1; mode=block")
-		
+
 		next.ServeHTTP(w, r)
 	})
 }

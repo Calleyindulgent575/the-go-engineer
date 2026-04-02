@@ -18,11 +18,11 @@ import (
 //   - Error handling and usage messages for invalid subcommands
 //
 // ENGINEERING DEPTH:
-//   Massive multi-tool CLIs like `kubectl` or `docker` do not parse global flags. 
-//   Instead, they act as "Routers". By slicing `os.Args[2:]`, they mathematically 
-//   sever the initial subcommand string from the underlying array, passing only the 
-//   remaining flags down into an isolated runtime scope. This prevents fatal namespace 
-//   collisions where `docker run --help` might overlap with a global `--help` flag, 
+//   Massive multi-tool CLIs like `kubectl` or `docker` do not parse global flags.
+//   Instead, they act as "Routers". By slicing `os.Args[2:]`, they mathematically
+//   sever the initial subcommand string from the underlying array, passing only the
+//   remaining flags down into an isolated runtime scope. This prevents fatal namespace
+//   collisions where `docker run --help` might overlap with a global `--help` flag,
 //   allowing independent validation lifetimes for every subcommand.
 //
 // RUN:

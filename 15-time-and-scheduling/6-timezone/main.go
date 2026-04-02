@@ -11,12 +11,12 @@ package main
 //   - Best practices for system clocks (Always use UTC!)
 //
 // ENGINEERING DEPTH:
-//   A massive architectural mistake is storing locally formatted timestamps in 
-//   a database (e.g. `2024-10-31 16:00:00 PST`). If the server moves, or DST 
-//   changes, the data is corrupted. A `time.Time` struct inherently represents 
-//   an absolute, universal instant in the cosmos. The "Timezone" is merely a 
-//   presentation layer formatting offset. ALWAYS write down and store absolute 
-//   UTC time in your databases. Only convert to a local `time.Location` at the 
+//   A massive architectural mistake is storing locally formatted timestamps in
+//   a database (e.g. `2024-10-31 16:00:00 PST`). If the server moves, or DST
+//   changes, the data is corrupted. A `time.Time` struct inherently represents
+//   an absolute, universal instant in the cosmos. The "Timezone" is merely a
+//   presentation layer formatting offset. ALWAYS write down and store absolute
+//   UTC time in your databases. Only convert to a local `time.Location` at the
 //   very last millisecond before rendering the UI for the user!
 //
 // RUN: go run ./15-time-and-scheduling/6-timezone

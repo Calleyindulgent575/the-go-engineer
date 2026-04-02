@@ -20,8 +20,8 @@ type Account struct {
 }
 
 // Deposit uses a POINTER RECEIVER `(acc *Account)`.
-// We MUST use a pointer here because we are modifying `acc.Balance`. 
-// If we used a Value Receiver `(acc Account)`, we would only modify a COPY 
+// We MUST use a pointer here because we are modifying `acc.Balance`.
+// If we used a Value Receiver `(acc Account)`, we would only modify a COPY
 // of the balance, and the original struct would remain unchanged!
 func (acc *Account) Deposit(amount float64) error {
 	if amount <= 0 {
@@ -59,7 +59,7 @@ type SavingsAccount struct {
 	// By declaring `Account` without a field name, Go "promotes" all of Account's
 	// fields (Balance, AccountNumber) directly into SavingsAccount.
 	// This replaces "Inheritance" (is-a) with "Composition" (has-a).
-	Account              
+	Account
 	InterestRate float64
 }
 
@@ -78,7 +78,7 @@ type OverdraftAccount struct {
 }
 
 // Withdraw "Shadows" the base Account's Withdraw method!
-// Because OverdraftAccount defines its own Withdraw function, Go will execute 
+// Because OverdraftAccount defines its own Withdraw function, Go will execute
 // this one instead of the deeply-nested `Account.Withdraw()`.
 func (oa *OverdraftAccount) Withdraw(amount float64) error {
 	if amount <= 0 {

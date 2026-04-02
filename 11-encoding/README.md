@@ -15,3 +15,14 @@ In Go, `json.Marshal()` operates using Reflection (`reflect` package) to map str
 
 ## References
 1. **[Go Blog]** [JSON and Go](https://go.dev/blog/json)
+
+---
+
+## 🏗 Exercise: Config File Parser (`6-config-parser`)
+
+Build a JSON config file parser that reads, decodes, and validates application configuration. Try it yourself with the `_starter/` directory first!
+
+```bash
+go run ./11-encoding/6-config-parser/_starter   # Try the exercise
+go run ./11-encoding/6-config-parser            # See the solution
+```

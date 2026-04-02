@@ -55,7 +55,7 @@ func (app *Application) Routes() http.Handler {
 	mux.Handle("POST /posts", app.requireAuth(http.HandlerFunc(app.handleCreatePost)))
 
 	// Global Middleware Chain (Wrap the entire multiplexer)
-	// Because of how standard library decorators work, middleware executes from 
+	// Because of how standard library decorators work, middleware executes from
 	// the OUTSIDE -> IN. So `RecoverPanic` runs first, `LogRequest` runs second,
 	// `SecureHeaders` is third, and finally the router `mux` evaluates the path.
 	handler := middleware.SecureHeaders(
@@ -87,10 +87,10 @@ func (app *Application) requireAuth(next http.Handler) http.Handler {
 
 		// Context Value Propagation
 		// Request contexts are IMMUTABLE. We cannot edit `r.Context()`.
-		// We use `context.WithValue` to create a COPY of the Context, binding 
-		// the `uid` directly inside it. 
+		// We use `context.WithValue` to create a COPY of the Context, binding
+		// the `uid` directly inside it.
 		ctx := context.WithValue(r.Context(), CtxUserID, uid)
-		
+
 		// We overwrite the request pointer using `r.WithContext(ctx)`.
 		// Any downstream handler in the chain can now recover this identity!
 		next.ServeHTTP(w, r.WithContext(ctx))

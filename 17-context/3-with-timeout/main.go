@@ -19,12 +19,12 @@ import (
 //   - The production pattern: always set timeouts on I/O operations
 //
 // ENGINEERING DEPTH:
-//   `WithTimeout` is fundamentally built on `WithDeadline`. When you call 
-//   `WithTimeout(ctx, 5 * time.Second)`, Go computes `time.Now().Add(5s)` and 
-//   passes it internally to `WithDeadline`. The Go runtime then registers a 
-//   new hardware Timer (`time.AfterFunc`) against the OS clock. When that 
-//   exact millisecond arrives, the OS interrupts the Go Scheduler, which 
-//   automatically invokes the context's internal `cancel()` function for you.
+//   `WithTimeout` is fundamentally built on `WithDeadline`. When you call
+//   `WithTimeout(ctx, 5 * time.Second)`, Go computes `time.Now().Add(5s)` and
+//   passes it internally to `WithDeadline`. The Go runtime registers a timer in
+//   its internal timer heap (a min-heap data structure managed per-P). When the
+//   deadline arrives, the runtime's timer goroutine fires the context's internal
+//   `cancel()` function, closing the Done() channel and unblocking all waiters.
 //
 // RUN: go run ./17-context/3-with-timeout
 // ============================================================================

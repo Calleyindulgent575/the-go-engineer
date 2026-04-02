@@ -45,9 +45,9 @@ func (r *SQLUserRepository) CreateUser(name, email, rawPassword, avatar string) 
 	if err != nil {
 		return 0, err
 	}
-	
+
 	// 2. The Safety Catch
-	// If the function returns early due to an error, `Rollback()` will abort the 
+	// If the function returns early due to an error, `Rollback()` will abort the
 	// transaction. If `Commit()` succeeds later, calling `Rollback()` does nothing!
 	defer tx.Rollback()
 
@@ -59,7 +59,7 @@ func (r *SQLUserRepository) CreateUser(name, email, rawPassword, avatar string) 
 
 	// 3. Prevent SQL Injection
 	// We NEVER use `fmt.Sprintf` to build queries!
-	// Using `?` parameters forces the database driver to treat the inputs strictly 
+	// Using `?` parameters forces the database driver to treat the inputs strictly
 	// as literal bytes rather than executable SQL commands, completely neutralizing
 	// SQL injection attacks.
 	userQuery := `INSERT INTO users (name, email, hashed_password) VALUES (?, ?, ?)`
@@ -100,8 +100,8 @@ func (r *SQLUserRepository) GetUserByEmail(email string) (*models.User, error) {
 	row := r.db.QueryRow(stmt, email)
 
 	// 4. Memory Pointer Scanning
-	// `.Scan()` reads the raw bytes returned by the database driver and 
-	// casts them into the specific Go types, writing the data directly into 
+	// `.Scan()` reads the raw bytes returned by the database driver and
+	// casts them into the specific Go types, writing the data directly into
 	// the memory addresses we provide (`&`).
 	var user models.User
 	err := row.Scan(

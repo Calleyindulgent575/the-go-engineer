@@ -13,3 +13,14 @@ A common memory leak in Go is abandoning `time.Ticker` instances. The ticker use
 
 ## References
 1. **[Go Docs]** [Package time](https://pkg.go.dev/time)
+
+---
+
+## 🏗 Exercise: Console Reminder (`7-reminder`)
+
+Build a countdown reminder that uses `time.NewTicker` and `time.AfterFunc`. Try it yourself first!
+
+```bash
+go run ./15-time-and-scheduling/7-reminder/_starter 5 "Break time!"  # Try the exercise
+go run ./15-time-and-scheduling/7-reminder 5 "Break time!"           # See the solution
+```

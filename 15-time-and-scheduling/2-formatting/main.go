@@ -11,12 +11,12 @@ package main
 //   - Parsing strings back into `time.Time` structs
 //
 // ENGINEERING DEPTH:
-//   Most languages use token-based formatting like `YYYY-MM-DD HH:MM:SS`. 
-//   Go developers realized this requires constantly looking up cheat sheets. 
-//   Instead, Go uses a single, memorable "Reference Time": 
-//   Mon Jan 2 15:04:05 MST 2006. (1-2-3-4-5-6-7). 
-//   You simply write down what that specific reference time would look like 
-//   in your desired format, and the engine tokenizes it underneath. 
+//   Most languages use token-based formatting like `YYYY-MM-DD HH:MM:SS`.
+//   Go developers realized this requires constantly looking up cheat sheets.
+//   Instead, Go uses a single, memorable "Reference Time":
+//   Mon Jan 2 15:04:05 MST 2006. (1-2-3-4-5-6-7).
+//   You simply write down what that specific reference time would look like
+//   in your desired format, and the engine tokenizes it underneath.
 //
 // RUN: go run ./15-time-and-scheduling/2-formatting
 // ============================================================================

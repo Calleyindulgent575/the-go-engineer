@@ -24,13 +24,13 @@ import (
 //   - Thread-safe operations with sync.RWMutex
 //
 // ENGINEERING DEPTH:
-//   Storing hierarchical tree data (Reddit threads, comments) in a flat relational 
-//   system is famously difficult. We are using the "Adjacency List" pattern: 
-//   each node simply points to its `ParentID`. When we retrieve the flat list from 
-//   the database, we perform a 2-Pass algorithm in Go (O(N) time complexity). First 
-//   pass Maps all items into memory by their ID. The Second pass iterates through 
-//   all items, checking their `ParentID`, and appends them as a child slice to 
-//   their respective parent's memory address. This instantly constructs an n-ary 
+//   Storing hierarchical tree data (Reddit threads, comments) in a flat relational
+//   system is famously difficult. We are using the "Adjacency List" pattern:
+//   each node simply points to its `ParentID`. When we retrieve the flat list from
+//   the database, we perform a 2-Pass algorithm in Go (O(N) time complexity). First
+//   pass Maps all items into memory by their ID. The Second pass iterates through
+//   all items, checking their `ParentID`, and appends them as a child slice to
+//   their respective parent's memory address. This instantly constructs an n-ary
 //   tree out of a flat array with zero recursion overhead!
 //
 // RUN: go run ./13-web-masterclass/10-comments

@@ -38,8 +38,6 @@ Context solves the "cancellation propagation" problem: when a user cancels an HT
 | `2-with-cancel/` | Manual cancellation with `context.WithCancel` | Intermediate |
 | `3-with-timeout/` | Automatic deadlines with `context.WithTimeout` | Intermediate |
 | `4-with-value/` | Request-scoped data with `context.WithValue` | Advanced |
-| `5-propagation/` | Passing context through function chains | Advanced |
-| `6-http-context/` | Context in HTTP handlers | Advanced |
 
 ## How to Run
 
@@ -47,6 +45,18 @@ Context solves the "cancellation propagation" problem: when a user cancels an HT
 go run ./17-context/1-background
 go run ./17-context/2-with-cancel
 go run ./17-context/3-with-timeout
+go run ./17-context/4-with-value
+```
+
+---
+
+## 🏗 Exercise: Timeout-Aware API Client (`5-timeout-client`)
+
+Build an HTTP client that uses `context.WithTimeout` to enforce request deadlines. Try it yourself first!
+
+```bash
+go run ./17-context/5-timeout-client/_starter   # Try the exercise
+go run ./17-context/5-timeout-client            # See the solution
 ```
 
 ## References

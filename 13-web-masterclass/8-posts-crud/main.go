@@ -29,11 +29,11 @@ import (
 //
 // ENGINEERING DEPTH:
 //   Why pass `context.Context` from the HTTP Handler directly into `ExecContext`?
-//   If a client makes a `GET /posts` request that triggers a slow 10-second DB 
-//   scan, but the user immediately closes their browser tab, the HTTP server 
-//   detects the dropped TCP connection and cancels the `Request.Context()`. 
-//   Because we propagate this `ctx` into the `sql` package, the Go runtime instantly 
-//   fires a cancellation signal to the database engine via the socket, killing the 
+//   If a client makes a `GET /posts` request that triggers a slow 10-second DB
+//   scan, but the user immediately closes their browser tab, the HTTP server
+//   detects the dropped TCP connection and cancels the `Request.Context()`.
+//   Because we propagate this `ctx` into the `sql` package, the Go runtime instantly
+//   fires a cancellation signal to the database engine via the socket, killing the
 //   heavy query mid-flight! This prevents massive resource exhaustion attacks.
 //
 // RUN: go run ./13-web-masterclass/8-posts-crud

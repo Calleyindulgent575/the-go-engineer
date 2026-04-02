@@ -20,6 +20,7 @@ Every Go engineer needs to build command-line tools. Go excels at CLI developmen
 | `1-args/` | Raw arguments with `os.Args`, environment variables | Beginner |
 | `2-flags/` | Typed arguments with the `flag` package | Intermediate |
 | `3-subcommands/` | Building multi-command CLIs (like `git`) | Advanced |
+| `4-file-organizer/` | **Exercise:** CLI file organizer by extension | Intermediate |
 
 ## How to Run
 
@@ -27,6 +28,17 @@ Every Go engineer needs to build command-line tools. Go excels at CLI developmen
 go run ./19-cli-tools/1-args hello world
 go run ./19-cli-tools/2-flags -name="Go Mastery" -count=3
 go run ./19-cli-tools/3-subcommands greet -name="Gopher"
+```
+
+---
+
+## 🏗 Exercise: File Organizer (`4-file-organizer`)
+
+Build a CLI tool that organizes files in a directory by extension, with a `--dry-run` flag. Try it yourself first!
+
+```bash
+go run ./19-cli-tools/4-file-organizer/_starter --dir=./my-folder  # Try the exercise
+go run ./19-cli-tools/4-file-organizer --dir=./my-folder           # See the solution
 ```
 
 ## References

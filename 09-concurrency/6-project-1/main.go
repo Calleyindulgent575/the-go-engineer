@@ -24,8 +24,8 @@ func ping(ctx context.Context, ch chan string) {
 		select {
 		case <-ctx.Done():
 			// 2. Context Cancellation
-			// If the parent calls `cancel()` or times out, the `Done()` channel 
-			// is closed. Reading from a closed channel instantly returns, allowing 
+			// If the parent calls `cancel()` or times out, the `Done()` channel
+			// is closed. Reading from a closed channel instantly returns, allowing
 			// this Goroutine to gracefully exit (preventing memory leaks).
 			return
 		case ch <- fmt.Sprintf("ping: %v", time.Now()):

@@ -14,13 +14,13 @@ import "fmt"
 //   - Anti-patterns to avoid
 //
 // ENGINEERING DEPTH:
-//   Unlike Django or Spring Boot, Go does NOT enforce a project structure. 
-//   However, the community standardized the "golang-standards/project-layout". 
-//   The critical mechanics here involve the `internal/` directory. If a package 
-//   is inside `internal/`, the Go Compiler's import graph algorithm explicitly 
-//   blocks *any* repository from importing it outside of the direct parent tree. 
-//   This gives you absolute guarantees that internal microservices or database 
-//   layer structs won't leak into the public API boundaries of users importing 
+//   Unlike Django or Spring Boot, Go does NOT enforce a project structure.
+//   However, the community standardized the "golang-standards/project-layout".
+//   The critical mechanics here involve the `internal/` directory. If a package
+//   is inside `internal/`, the Go Compiler's import graph algorithm explicitly
+//   blocks *any* repository from importing it outside of the direct parent tree.
+//   This gives you absolute guarantees that internal microservices or database
+//   layer structs won't leak into the public API boundaries of users importing
 //   your module!
 //
 // RUN: go run ./18-package-design/3-project-layout

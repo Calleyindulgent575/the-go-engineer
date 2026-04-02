@@ -26,8 +26,8 @@ func parseConfig(content string) (map[string]string, error) {
 	re := regexp.MustCompile(`^\s*([\w.-]+)\s*=\s*(?:'([^']*)'|"([^"]*)"|([^#\s]*))?(?:\s*#.*)?$`)
 
 	// 2. The Scanner
-	// bufio.Scanner wraps an io.Reader. Instead of loading a 10GB log file 
-	// directly into RAM (which would crash the server), it streams the bytes 
+	// bufio.Scanner wraps an io.Reader. Instead of loading a 10GB log file
+	// directly into RAM (which would crash the server), it streams the bytes
 	// from memory lazily, line by line.
 	scanner := bufio.NewScanner(strings.NewReader(content))
 	lineNo := 0
@@ -38,10 +38,10 @@ func parseConfig(content string) (map[string]string, error) {
 		line := scanner.Text()
 
 		// 3. String Trimming
-		// Strings are immutable, so TrimSpace allocates a fresh string header 
+		// Strings are immutable, so TrimSpace allocates a fresh string header
 		// pointing to a sliced portion of the underlying byte array.
 		trimmedLine := strings.TrimSpace(line)
-		
+
 		// Skip empty lines or comments
 		if trimmedLine == "" || strings.HasPrefix(trimmedLine, "#") {
 			continue // Skip to next iteration of the loop
@@ -54,7 +54,7 @@ func parseConfig(content string) (map[string]string, error) {
 			fmt.Printf("Line %d: '%s' - Is Invalid\n", lineNo, line)
 			continue
 		}
-		
+
 		// matches[0] = the entire matching line
 		// matches[1] = the key capture group
 		key := matches[1]

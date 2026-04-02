@@ -14,12 +14,12 @@ import "fmt"
 //   - Why Go doesn't have private/public/protected keywords
 //
 // ENGINEERING DEPTH:
-//   In JVM languages, keywords like `public` and `private` are evaluated during 
-//   an expensive AST parsing phase just to determine visibility. Go's genius was 
-//   pushing visibility directly into the Lexer! By checking the Unicode uppercase 
-//   flag of the very first byte of a symbol's AST node, Go's compiler instantly 
-//   knows if a symbol is exported without running a single line of access-modifier 
-//   logic. This is one of the hundreds of micro-optimizations that makes the Go 
+//   In JVM languages, keywords like `public` and `private` are evaluated during
+//   an expensive AST parsing phase just to determine visibility. Go's genius was
+//   pushing visibility directly into the Lexer! By checking the Unicode uppercase
+//   flag of the very first byte of a symbol's AST node, Go's compiler instantly
+//   knows if a symbol is exported without running a single line of access-modifier
+//   logic. This is one of the hundreds of micro-optimizations that makes the Go
 //   compiler legendary for its compilation speed.
 //
 // RUN: go run ./18-package-design/2-visibility

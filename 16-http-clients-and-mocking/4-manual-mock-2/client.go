@@ -6,10 +6,15 @@ import (
 	"net/http"
 )
 
+// This client.go is INTENTIONALLY IDENTICAL to section 3-manual-mock.
+// The progression in this section is in the TEST FILE (client_test.go).
+// In section 3, we wrote a basic mock. Here in section 4, the test file
+// adds ERROR CASE testing — verifying how FetchPosts handles network failures
+// and non-200 status codes. The client code doesn't change; the tests evolve.
+//
 // 1. The Mocking Interface
 // Instead of directly using `http.Client` (which fires real network connections),
 // we define an interface that matches its method signature.
-// At runtime, we can pass either a real `http.Client` OR a fake mock struct!
 type HTTPClient interface {
 	Get(url string) (*http.Response, error)
 }
@@ -45,11 +50,11 @@ type PostsResponse struct {
 func (c *PostsClient) FetchPosts(limit int) ([]Post, error) {
 
 	url := fmt.Sprintf("%s/posts?limit=%d", c.baseURL, limit)
-	
+
 	// 3. Polymorphic Call
 	// If running in production, this calls `http.Client.Get()`.
 	// If running in a unit test, this calls `MockHTTPClient.Get()`.
-	resp, err := c.httpClient.Get(url) 
+	resp, err := c.httpClient.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch posts: %w", err)
 	}

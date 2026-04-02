@@ -76,15 +76,22 @@ func main() {
 
 ## Adding an Exercise
 
-Exercises include both starter code and solutions:
+Exercises include both complete solutions and starter stubs:
 
 ```
 NN-section-name/
 └── N-exercise-name/
-    ├── main.go              ← Starter code with TODO comments
-    └── _solution/
-        └── main.go          ← Complete solution with comments
+    ├── main.go              ← Complete solution with comments
+    └── _starter/
+        └── main.go          ← TODO stubs for self-challenge
 ```
+
+The `_starter/main.go` should:
+
+- Have the same file header and REQUIREMENTS checklist
+- Contain function signatures with `// TODO: implement this` bodies
+- Compile successfully (return zero-values from stubs)
+- Print a message directing students to the requirements
 
 ## Commit Messages
 
@@ -107,3 +114,4 @@ Before submitting, verify:
 - [ ] Every new Go file has the standard header template
 - [ ] Every concept has inline teaching comments
 - [ ] The section README is updated
+- [ ] CI pipeline passes on push (GitHub Actions)

@@ -19,11 +19,11 @@ import (
 //   - Accessing remaining (non-flag) arguments
 //
 // ENGINEERING DEPTH:
-//   Why does the `flag` package return memory pointers (`*int`, `*string`) instead 
-//   of raw values? When you define `count := flag.Int(...)`, the struct hasn't parsed 
-//   the shell input yet! Returning a pointer allows the `flag` package to allocate 
-//   the destination memory *immediately*, and then asynchronously overwrite the data 
-//   at those memory addresses later when you invoke `flag.Parse()`. Without pointers, 
+//   Why does the `flag` package return memory pointers (`*int`, `*string`) instead
+//   of raw values? When you define `count := flag.Int(...)`, the struct hasn't parsed
+//   the shell input yet! Returning a pointer allows the `flag` package to allocate
+//   the destination memory *immediately*, and then asynchronously overwrite the data
+//   at those memory addresses later when you invoke `flag.Parse()`. Without pointers,
 //   you would be forced to capture every return value from the parse step individually.
 //
 // RUN:

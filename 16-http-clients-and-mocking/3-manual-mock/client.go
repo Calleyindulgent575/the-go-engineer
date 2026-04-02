@@ -45,11 +45,11 @@ type PostsResponse struct {
 func (c *PostsClient) FetchPosts(limit int) ([]Post, error) {
 
 	url := fmt.Sprintf("%s/posts?limit=%d", c.baseURL, limit)
-	
+
 	// 3. Polymorphic Call
 	// If running in production, this calls `http.Client.Get()`.
 	// If running in a unit test, this calls `MockHTTPClient.Get()`.
-	resp, err := c.httpClient.Get(url) 
+	resp, err := c.httpClient.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch posts: %w", err)
 	}

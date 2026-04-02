@@ -15,10 +15,10 @@ import "fmt"
 //
 // ENGINEERING DEPTH:
 //   Go takes an extreme minimalist approach to naming to reduce mental load.
-//   There are no "namespaces" in Go — the package name IS the namespace. 
-//   When compiling, the Go linker builds symbol tables using the exact package name. 
-//   This is why `utils` or `helpers` are architectural failures: a symbol like 
-//   `utils.Format()` tells the compiler and the human absolutely nothing about 
+//   There are no "namespaces" in Go — the package name IS the namespace.
+//   When compiling, the Go linker builds symbol tables using the exact package name.
+//   This is why `utils` or `helpers` are architectural failures: a symbol like
+//   `utils.Format()` tells the compiler and the human absolutely nothing about
 //   the domain boundary of the memory it operates on!
 //
 // RUN: go run ./18-package-design/1-naming

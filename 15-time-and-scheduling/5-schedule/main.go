@@ -12,11 +12,11 @@ package main
 //   - Safe cancellation using channel blocks
 //
 // ENGINEERING DEPTH:
-//   This custom Scheduler implements an Actor Model pattern. Instead of spawning  
-//   cron-jobs globally and losing control of them, the `Scheduler` struct holds 
-//   a map of Task pointers and a global `WaitGroup`. If the application needs to 
-//   shut down (e.g. graceful shutdown on SIGTERM), it loops through the map, sends 
-//   a signal to every child's `stopChan`, and safely blocks until the `WaitGroup` 
+//   This custom Scheduler implements an Actor Model pattern. Instead of spawning
+//   cron-jobs globally and losing control of them, the `Scheduler` struct holds
+//   a map of Task pointers and a global `WaitGroup`. If the application needs to
+//   shut down (e.g. graceful shutdown on SIGTERM), it loops through the map, sends
+//   a signal to every child's `stopChan`, and safely blocks until the `WaitGroup`
 //   counter hits zero. This guarantees zero zombie processes during deployments!
 //
 // RUN: go run ./15-time-and-scheduling/5-schedule
@@ -86,7 +86,7 @@ func (s *Scheduler) ScheduleInterval(name string, initialDelay time.Duration, in
 	}
 
 	// 1. Thread-Safe Map Mutations
-	// Maps in Go are NOT thread-safe. If two Goroutines try to schedule a task 
+	// Maps in Go are NOT thread-safe. If two Goroutines try to schedule a task
 	// at exactly the same microsecond, the application will trigger a fatal panic.
 	// We MUST acquire a Lock, write to the map memory, and immediately Unlock it.
 	s.mu.Lock()
@@ -133,8 +133,8 @@ func (s *Scheduler) ScheduleInterval(name string, initialDelay time.Duration, in
 				action()
 			case <-task.stopChan:
 				// 2. Asynchronous Cancellation
-				// If `StopAll()` closes `task.stopChan`, this case instantly 
-				// becomes unblocked, terminating the infinite `for` loop and 
+				// If `StopAll()` closes `task.stopChan`, this case instantly
+				// becomes unblocked, terminating the infinite `for` loop and
 				// allowing the `defer s.globalWg.Done()` to execute.
 				fmt.Printf("[%s] TASK '%s' (ID: %s): Received stop signal. Exiting goroutine.\n",
 					time.Now().Format("15:04:05.000"), task.Name, task.ID)

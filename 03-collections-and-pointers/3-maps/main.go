@@ -38,7 +38,7 @@ func main() {
 	fmt.Printf("%+v\n", studentGrades)
 
 	// 3. The "Comma-Ok" Idiom
-	// Accessing a missing key returns the zero-value (0 for int). 
+	// Accessing a missing key returns the zero-value (0 for int).
 	// To distinguish between "Alice scored a 0" and "Alice is not in the map",
 	// Go returns a secondary boolean.
 	alice, ok := studentGrades["Alice"]
@@ -55,7 +55,7 @@ func main() {
 	}
 
 	// 5. The Builtin delete() Function
-	// This doesn't shrink the map's capacity! It merely flags the bucket 
+	// This doesn't shrink the map's capacity! It merely flags the bucket
 	// slot as "empty", keeping the memory allocated for future inserts.
 	delete(studentGrades, "Alice")
 

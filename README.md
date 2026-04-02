@@ -1,5 +1,7 @@
 # The Go Engineer: Learn Go by Building Real Projects
 
+[![CI](https://github.com/rasel9t6/the-go-engineer/actions/workflows/ci.yml/badge.svg)](https://github.com/rasel9t6/the-go-engineer/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/rasel9t6)
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/rasel9t6)
 
@@ -13,10 +15,13 @@ Welcome to **The Go Engineer** — the definitive open-source Go curriculum. Eve
 git clone https://github.com/rasel9t6/the-go-engineer.git
 cd the-go-engineer
 
-# 3. Verify Go is working
+# 3. Download dependencies
+go mod download
+
+# 4. Verify Go is working
 go version
 
-# 4. Run your first program
+# 5. Run your first program
 go run ./00-getting-started/2-hello-world
 ```
 
@@ -103,9 +108,13 @@ Each section culminates in a hands-on project to test your understanding:
 | **07** Strings & Text | `6-log-parser` | Log File Parsing System |
 | **09** Concurrency | `7-downloader` | Concurrent Multi-File Downloader |
 | **10** Filesystem | `7-log-search` | Directory traversal log search tool |
+| **11** Encoding | `6-config-parser` | JSON config file parser with validation |
 | **12** Databases | `6-repository` | CRUD SQLite App using Repository Pattern |
 | **13** Web Masterclass | `1-routing/exercise` | Multi-route Bookstore Web API |
+| **15** Time & Scheduling | `7-reminder` | Console reminder with countdown timer |
 | **16** HTTP Clients | `6-testify-mock` | Mocking an external REST API Data Fetcher |
+| **17** Context | `5-timeout-client` | Timeout-aware HTTP API client |
+| **19** CLI Tools | `4-file-organizer` | CLI file organizer by extension |
 | **22** The Capstone | `cmd/api` | **The Multi-Package Docker Enterprise Backend** |
 
 ## How to Use This Repository
@@ -121,6 +130,18 @@ go run ./00-getting-started/2-hello-world
 go run ./01-language-basics/1-variables
 go run ./09-concurrency/3-channels
 go run ./13-web-masterclass/1-routing
+```
+
+### Self-Challenge Mode
+
+Most exercises include a `_starter/` directory with TODO stubs:
+
+```bash
+# Try the exercise yourself first:
+go run ./02-control-flow/4-pricing-calculator/_starter
+
+# Then compare with the solution:
+go run ./02-control-flow/4-pricing-calculator
 ```
 
 For the grand finale, boot the entire Enterprise Backend cluster (Database + Migrations + API) using Docker:

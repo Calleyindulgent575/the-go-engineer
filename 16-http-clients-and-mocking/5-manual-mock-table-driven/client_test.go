@@ -39,9 +39,9 @@ func TestPostsClient_FetchPosts(t *testing.T) {
 	// By defining an anonymous `struct` and immediately instantiating a slice `[]struct{}`
 	// we avoid writing 15 different nearly-identical test functions.
 	tests := []struct {
-		name            string // Used for naming the t.Run subtest
+		name            string                                   // Used for naming the t.Run subtest
 		getFunc         func(url string) (*http.Response, error) // The dynamic mock payload
-		limit           int      
+		limit           int
 		wantErr         bool
 		errContains     string
 		wantPostsNil    bool

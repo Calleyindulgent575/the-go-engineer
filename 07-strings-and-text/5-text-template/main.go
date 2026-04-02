@@ -10,9 +10,9 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"os"
 	"strings"
+	"text/template"
 )
 
 type EmailData struct {
@@ -51,7 +51,7 @@ You have no messages
 {{.SenderName}}
 `
 	// 1. Template Parsing
-	// `New("name")` allocates a new HTML template in memory.
+	// `New("name")` allocates a new text template in memory.
 	// `.Parse()` compiles the raw string into an Abstract Syntax Tree (AST).
 	// This parsing only needs to happen ONCE during application startup!
 	tmpl, err := template.New("email-message").Parse(emailTemplate)
@@ -61,7 +61,7 @@ You have no messages
 	}
 
 	// 2. Data Hydration
-	// The struct fields MUST be exported (Capitalized) so the template engine 
+	// The struct fields MUST be exported (Capitalized) so the template engine
 	// (which uses the `reflect` package) can read them at runtime!
 	data := EmailData{
 		RecipientName: "Alice",
@@ -73,13 +73,13 @@ You have no messages
 	}
 
 	// 3. The strings.Builder
-	// We use strings.Builder instead of string concatenation (+) because strings are 
+	// We use strings.Builder instead of string concatenation (+) because strings are
 	// immutable in Go. Concatenating 10,000 strings allocates 10,000 new memory blocks.
 	// Builder acts as an expandable byte buffer.
 	var output strings.Builder
 
 	// 4. Execution
-	// `tmpl.Execute` dynamically walks the AST, hydrates the variables using reflection 
+	// `tmpl.Execute` dynamically walks the AST, hydrates the variables using reflection
 	// on `data`, and streams the resulting bytes directly into the `output` builder.
 	err = tmpl.Execute(&output, data)
 	if err != nil {

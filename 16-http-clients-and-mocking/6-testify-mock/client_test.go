@@ -12,7 +12,7 @@ import (
 )
 
 // 1. Testify Mock Embedding
-// By anonymously embedding `mock.Mock`, MockHTTPClient inherits all of Testify's 
+// By anonymously embedding `mock.Mock`, MockHTTPClient inherits all of Testify's
 // argument-capturing and reflection assertion methods.
 type MockHTTPClient struct {
 	mock.Mock

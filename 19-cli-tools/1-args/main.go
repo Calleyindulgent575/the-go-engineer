@@ -18,11 +18,11 @@ import (
 //   - Building a simple CLI tool from scratch
 //
 // ENGINEERING DEPTH:
-//   Command line arguments aren't just strings; they are the fundamental UNIX 
-//   inter-process communication mechanism. When the shell (bash/zsh) launches your 
-//   compiled Go binary, it invokes the `execve()` system call. The OS Kernel reads 
-//   the arguments you typed, allocates them into the new process's stack memory space, 
-//   and points Go's `os.Args` string slice directly at those memory addresses. This 
+//   Command line arguments aren't just strings; they are the fundamental UNIX
+//   inter-process communication mechanism. When the shell (bash/zsh) launches your
+//   compiled Go binary, it invokes the `execve()` system call. The OS Kernel reads
+//   the arguments you typed, allocates them into the new process's stack memory space,
+//   and points Go's `os.Args` string slice directly at those memory addresses. This
 //   is why `os.Args[0]` is incredibly rigid and always contains the executable path!
 //
 // RUN:

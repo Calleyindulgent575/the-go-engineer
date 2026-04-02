@@ -6,10 +6,16 @@ import (
 	"net/http"
 )
 
+// This client.go is INTENTIONALLY IDENTICAL to sections 3, 4, and 5.
+// The progression here is in the TEST FILE (client_test.go).
+// In section 6, we replace our hand-written mock struct with testify/mock —
+// a library that auto-generates mock behavior using reflection. The client
+// code never changed because that's the power of interface-based design:
+// you swap implementations WITHOUT modifying the production code.
+//
 // 1. The Mocking Interface
 // Instead of directly using `http.Client` (which fires real network connections),
 // we define an interface that matches its method signature.
-// At runtime, we can pass either a real `http.Client` OR a fake mock struct!
 type HTTPClient interface {
 	Get(url string) (*http.Response, error)
 }
@@ -45,11 +51,11 @@ type PostsResponse struct {
 func (c *PostsClient) FetchPosts(limit int) ([]Post, error) {
 
 	url := fmt.Sprintf("%s/posts?limit=%d", c.baseURL, limit)
-	
+
 	// 3. Polymorphic Call
 	// If running in production, this calls `http.Client.Get()`.
 	// If running in a unit test, this calls `MockHTTPClient.Get()`.
-	resp, err := c.httpClient.Get(url) 
+	resp, err := c.httpClient.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch posts: %w", err)
 	}

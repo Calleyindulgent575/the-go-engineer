@@ -11,10 +11,10 @@ package main
 //   - Why seeding is required for determinism in testing
 //
 // ENGINEERING DEPTH:
-//   In Go 1.21 and older, `math/rand` used a global pseudo-random state protected  
-//   by a silent Mutex lock. If you had 10,000 goroutines generating random numbers, 
-//   they would all bottleneck on that single Mutex! Go 1.22 introduced `rand/v2` 
-//   which completely eradicated the lock, utilizing the much faster ChaCha8 and PCG 
+//   In Go 1.21 and older, `math/rand` used a global pseudo-random state protected
+//   by a silent Mutex lock. If you had 10,000 goroutines generating random numbers,
+//   they would all bottleneck on that single Mutex! Go 1.22 introduced `rand/v2`
+//   which completely eradicated the lock, utilizing the much faster ChaCha8 and PCG
 //   algorithms. It is radically faster and structurally avoids global contention.
 //
 // RUN: go run ./15-time-and-scheduling/4-random

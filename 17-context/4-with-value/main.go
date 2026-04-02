@@ -23,13 +23,13 @@ import (
 //   Good: ctx = context.WithValue(ctx, requestIDKey, "abc") ← Request metadata
 //
 // ENGINEERING DEPTH:
-//   `WithValue` creates a `valueCtx` struct containing exactly *one* key-value pair 
-//   and a pointer to its parent. Because Contexts are immutable, writing 5 values 
-//   creates a deeply nested linked list of 5 separate Contexts! When you call 
-//   `ctx.Value(key)`, Go performs a linear O(N) search, climbing up the linked 
-//   list node-by-node until it finds the matching key type. This is why you must 
-//   NEVER store massive maps or application configs in Context; the O(N) lookup 
-//   penalty at high concurrency will destroy your server's performance.
+//   `WithValue` creates a `valueCtx` struct containing exactly *one* key-value pair
+//   and a pointer to its parent. Because Contexts are immutable, adding 5 values
+//   creates a chain of 5 nested Context wrappers. When you call `ctx.Value(key)`,
+//   Go walks UP the parent chain comparing keys until it finds a match or reaches
+//   the root. This is O(depth) — proportional to how many values were added. This
+//   is why you must NEVER store large amounts of data in Context; the linear lookup
+//   cost at high concurrency will degrade your server's performance.
 //
 // RUN: go run ./17-context/4-with-value
 // ============================================================================

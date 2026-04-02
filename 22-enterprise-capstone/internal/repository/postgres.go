@@ -51,10 +51,10 @@ func (r *PostgresRepo) Create(ctx context.Context, p *models.Post) (int, error) 
 
 	// Postgres uses $1, $2, $3 for positional arguments, NOT `?` like SQLite!
 	var newID int
-	
+
 	// Database Context Timeout Integration
-	// By using `QueryRowContext(ctx, ...)`, the database driver becomes aware of 
-	// HTTP constraints. If the HTTP Request drops out or times out, the Context 
+	// By using `QueryRowContext(ctx, ...)`, the database driver becomes aware of
+	// HTTP constraints. If the HTTP Request drops out or times out, the Context
 	// signals the SQL Driver to instantly ABORT the query, saving database CPU overhead.
 	err := r.db.QueryRowContext(ctx, query, p.Title, p.Content, p.AuthorID).Scan(&newID)
 	if err != nil {

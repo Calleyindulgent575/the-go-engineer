@@ -93,21 +93,21 @@ func ConcurrentDownloader(urls []string, destDir string, maxConcurrent int) erro
 
 	// 3. The "Semaphore" Pattern
 	// A buffered channel initialized with `maxConcurrent` capacity.
-	// If the buffer is full (e.g., length is 3), the 4th Goroutine will BLOCK 
+	// If the buffer is full (e.g., length is 3), the 4th Goroutine will BLOCK
 	// when trying to write to it, essentially throttling the OS file decriptions!
 	limiter := make(chan struct{}, maxConcurrent)
-	
+
 	for _, url := range urls {
 		wg.Add(1) // Increment active worker count
-		
+
 		// 4. Closure Variable Capture
-		// We MUST pass `url` as a function argument. If we just read the `url` 
-		// variable from the outer loop, the inner Goroutines would race and often 
+		// We MUST pass `url` as a function argument. If we just read the `url`
+		// variable from the outer loop, the inner Goroutines would race and often
 		// end up downloading the final URL multiple times.
 		go func(url string) {
 			defer wg.Done() // Decrement counter when function exits
 
-			limiter <- struct{}{} // Acquire Semaphore token (blocks if full)
+			limiter <- struct{}{}        // Acquire Semaphore token (blocks if full)
 			defer func() { <-limiter }() // Release Semaphore token back to the buffer
 
 			start := time.Now()
@@ -144,7 +144,7 @@ func ConcurrentDownloader(urls []string, destDir string, maxConcurrent int) erro
 
 	// 5. The Background Waiter
 	// We MUST run wg.Wait() in a separate Goroutine!
-	// If we ran `wg.Wait()` directly here in the main function, the main thread 
+	// If we ran `wg.Wait()` directly here in the main function, the main thread
 	// would block forever, and wouldn't be able to reach the `for result := range results`
 	// loop below to consume the data. The workers would then get deadlocked trying
 	// to send to the unbuffered `results` channel!

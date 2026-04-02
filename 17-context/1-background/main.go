@@ -17,10 +17,10 @@ import (
 //   - How context forms a TREE structure (parent → child → grandchild)
 //
 // ENGINEERING DEPTH:
-//   At its core, `context.Context` is just an interface containing an empty data 
+//   At its core, `context.Context` is just an interface containing an empty data
 //   type `type emptyCtx int`. Calling `context.Background()` simply returns
-//   a hardcoded pointer `new(emptyCtx)`. Because all derived Contexts (like timeouts) 
-//   wrap their parent in a linked list, this empty struct acts as the immutable, 
+//   a hardcoded pointer `new(emptyCtx)`. Because all derived Contexts (like timeouts)
+//   wrap their parent in a linked list, this empty struct acts as the immutable,
 //   zero-byte invisible root anchor for the entire concurrency tree.
 //
 // RUN: go run ./17-context/1-background
