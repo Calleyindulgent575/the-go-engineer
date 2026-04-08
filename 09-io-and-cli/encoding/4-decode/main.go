@@ -13,7 +13,7 @@ import (
 )
 
 // ============================================================================
-// Section 11: Encoding — JSON Decoder (Streaming)
+// Section 09: Encoding — JSON Decoder (Streaming)
 // Level: Intermediate
 // ============================================================================
 //

@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Filesystem — Temporary Files & Directories
+// Section 09: Filesystem — Temporary Files & Directories
 // Level: Intermediate
 // ============================================================================
 //

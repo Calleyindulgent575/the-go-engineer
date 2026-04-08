@@ -13,7 +13,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Filesystem — Directory Operations
+// Section 09: Filesystem — Directory Operations
 // Level: Intermediate
 // ============================================================================
 //

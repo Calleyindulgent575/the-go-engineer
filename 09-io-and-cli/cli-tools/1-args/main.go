@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 19: CLI Tools — Command-Line Arguments
+// Section 09: CLI Tools — Command-Line Arguments
 // Level: Beginner
 // ============================================================================
 //

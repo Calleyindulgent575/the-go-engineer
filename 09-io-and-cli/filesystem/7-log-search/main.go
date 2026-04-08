@@ -13,7 +13,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Filesystem — Log Search Tool (Exercise)
+// Section 09: Filesystem — Log Search Tool (Exercise)
 // Level: Intermediate → Advanced
 // ============================================================================
 //

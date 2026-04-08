@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 11: Encoding — JSON Unmarshalling (JSON → Go)
+// Section 09: Encoding — JSON Unmarshalling (JSON → Go)
 // Level: Beginner → Intermediate
 // ============================================================================
 //

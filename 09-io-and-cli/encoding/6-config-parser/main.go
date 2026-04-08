@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 11: Encoding — Config File Parser (Exercise)
+// Section 09: Encoding — Config File Parser (Exercise)
 // Level: Intermediate
 // ============================================================================
 //

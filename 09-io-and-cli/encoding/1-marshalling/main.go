@@ -12,7 +12,7 @@ import (
 )
 
 // ============================================================================
-// Section 11: Encoding — JSON Marshalling (Go → JSON)
+// Section 09: Encoding — JSON Marshalling (Go → JSON)
 // Level: Beginner → Intermediate
 // ============================================================================
 //

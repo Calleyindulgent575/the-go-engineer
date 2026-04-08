@@ -5,7 +5,7 @@
 package main
 
 // ============================================================================
-// Section 10: Filesystem — io.Reader/Writer Patterns
+// Section 09: Filesystem — io.Reader/Writer Patterns
 // Level: Advanced
 // ============================================================================
 //
@@ -21,7 +21,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: io.Reader and io.Writer Patterns
+// Section 09: io.Reader and io.Writer Patterns
 // Level: Intermediate → Advanced
 // ============================================================================
 //
@@ -77,7 +77,7 @@ func main() {
 	// 7. Custom Reader — implement the interface yourself
 	customReaderDemo()
 	fmt.Println("\n---------------------------------------------------")
-	fmt.Println("🚀 NEXT UP: ⭐ FS.8 fs.FS testing seam")
+	fmt.Println("🚀 NEXT UP: FS.7 log search tool")
 	fmt.Println("   Current: FS.6 (io.Reader / io.Writer patterns)")
 	fmt.Println("---------------------------------------------------")
 }

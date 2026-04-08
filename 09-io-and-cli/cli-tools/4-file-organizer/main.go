@@ -14,7 +14,7 @@ import (
 )
 
 // ============================================================================
-// Section 19: CLI Tools — File Organizer (Exercise)
+// Section 09: CLI Tools — File Organizer (Exercise)
 // Level: Intermediate
 // ============================================================================
 //

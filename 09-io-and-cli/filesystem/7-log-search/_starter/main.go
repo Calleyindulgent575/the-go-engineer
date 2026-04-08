@@ -7,7 +7,7 @@ package main
 import "fmt"
 
 // ============================================================================
-// Section 10: Filesystem — Log Search Tool (Exercise Starter)
+// Section 09: Filesystem — Log Search Tool (Exercise Starter)
 // Level: Intermediate → Advanced
 // ============================================================================
 //

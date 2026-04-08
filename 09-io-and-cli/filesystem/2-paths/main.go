@@ -11,7 +11,7 @@ import (
 )
 
 // ============================================================================
-// Section 10: Filesystem — File Paths
+// Section 09: Filesystem — File Paths
 // Level: Beginner
 // ============================================================================
 //
@@ -113,7 +113,7 @@ func main() {
 	}
 	fmt.Printf("  Go files in current dir: %v\n", goFiles)
 
-	// Match all Go files recursively would need filepath.WalkDir (Section 10/3)
+	// Match all Go files recursively would need filepath.WalkDir (FS.3)
 	fmt.Println()
 	fmt.Println("KEY TAKEAWAY:")
 	fmt.Println("  - ALWAYS use filepath.Join — never hardcode / or \\")
